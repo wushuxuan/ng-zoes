@@ -1,0 +1,32 @@
+.book-header{
+    /* background:#000;
+    color:#fff */
+}
+.summary>.active {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    position: relative;
+}
+.summary>.active:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #1890ff;
+    content: "";
+}
+
+
+.articles>.active {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    position: relative;
+}
+.articles>.active:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #1890ff;
+    content: "";
+}
