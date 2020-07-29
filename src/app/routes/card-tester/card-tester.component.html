@@ -1,0 +1,24 @@
+<nz-card nzTitle="便捷 Container">
+</nz-card>
+<br />
+<zc #zc [options]="options" [loading]="loading">
+  <ng-template #content1>内容1</ng-template>
+  <ng-template #content2>内容2</ng-template>
+  <ng-template #content3>内容3</ng-template>
+
+  <p>固定内容2</p>
+</zc>
+<br>
+<nz-card nzTitle="等待动画1 Loading" style="min-height:80vh">
+  <p><button nz-button nzType="primary">Primary</button></p>
+</nz-card>
+<br>
+
+<nz-card nzTitle="等待动画2 Loading" style="min-height:80vh">
+  <p><button nz-button nzType="primary" (click)="onClick()">Primary</button></p>
+</nz-card>
+
+<br>
+<nz-card nzTitle="等待动画3 Loading" style="min-height:80vh">
+  <p><button nz-button nzType="primary">Primary</button></p>
+</nz-card>

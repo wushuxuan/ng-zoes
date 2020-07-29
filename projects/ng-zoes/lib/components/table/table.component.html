@@ -1,0 +1,75 @@
+<ng-container>
+  <nz-button-group>
+    <button *ngFor="let operator of operators" nz-button [nzType]="operator.type" (click)="operator.click()">
+      {{operator.text}}
+    </button>
+  </nz-button-group>
+</ng-container>
+
+<nz-table #table [nzData]="_data" [nzTotal]="total"  [nzBordered]="bordered" [nzLoading]="loading"   [nzScroll]="scroll"  [(nzPageIndex)]="pi"
+  [(nzPageSize)]="ps" [nzShowPagination]="_isPagination" [nzShowQuickJumper]="_isQuickJumper"
+  [nzPageSizeOptions]="_isPageSizeOptions" [nzHideOnSinglePage]="_isOnSinglePage"
+  [nzPaginationPosition]="_paginationPosition" [nzFrontPagination]="_frontPagination"
+  [nzShowSizeChanger]="_isSizeChanger" (nzPageIndexChange)="_pageIndexChange($event)"
+  (nzPageSizeChange)="_pageSizeChange($event)"  [nzShowTotal]="totalTpl">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns; let $index = index" [nzAlign]="col.type && col.type=='checkbox'?'center':'auto'">
+        <label *ngIf="col.type && col.type=='checkbox'" nz-checkbox [(ngModel)]="_allChecked"
+          [nzIndeterminate]="_indeterminate" (ngModelChange)="_checkAll($event,col)"></label>
+        <span *ngIf="!col.type || col.type!='checkbox'">{{col.text}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let dataItem of table.data;let i = index;">
+      <tr (click)="_rowClick($event, dataItem, i)">
+        <ng-container *ngFor="let col of columns; let ii = index">
+          <!-- normal -->
+          <ng-container *ngIf="!col.pipe && !col.pipeType && !col.type && !col.render && !col.buttons">
+            <td> {{dataItem[col.index]}}</td>
+          </ng-container>
+          <!-- type -->
+          <ng-container *ngIf="!col.pipe && !col.pipeType && col.type && !col.render && !col.buttons">
+            <td [nzAlign]="col.type && (col.type=='checkbox' || col.type=='radio')?'center':'auto'" >
+              <ng-container [ngSwitch]="col.type">
+                <label *ngSwitchCase="'checkbox'" nz-checkbox [nzDisabled]="dataItem.disabled"
+                  [ngModel]="dataItem.checked" (ngModelChange)="_checkSelection(dataItem, $event)"></label>
+                <label *ngSwitchCase="'radio'" nz-radio [nzDisabled]="dataItem.disabled" [ngModel]="dataItem.checked"
+                  (ngModelChange)="_refRadio($event, dataItem)"></label>
+                <img *ngSwitchCase="'img'" style="width: auto; height: 30px;" [src]="dataItem[col.index]" alt=""
+                  srcset="">
+              </ng-container>
+            </td>
+          </ng-container>
+          <!-- pipe -->
+          <ng-container *ngIf="col.pipe && !col.pipeType && !col.type && !col.render && !col.buttons">
+            <td>{{dataItem[col.index] | tablePipe: col.pipe}}</td>
+          </ng-container>
+          <!-- pipeType -->
+          <ng-container *ngIf="!col.pipe && col.pipeType && !col.type && !col.render && !col.buttons">
+            <td>
+              {{dataItem[col.index] | date:col.pipeType ==='timestampHms'?'yyyy-MM-dd HH:mm:ss':(col.pipeType ==='timestamp'?'yyyy-MM-dd':'yyyy-MM-dd')}}
+            </td>
+          </ng-container>
+          <!-- render -->
+          <ng-container *ngIf="!col.pipe && !col.pipeType && !col.type && col.render && !col.buttons">
+            <td>
+              <div [innerHTML]=" dataItem[col.index] | renderPipe:dataItem:col.index:col.render">
+              </div>
+            </td>
+          </ng-container>
+          <!-- buttons -->
+          <ng-container *ngIf="!col.pipe && !col.pipeType && !col.type && !col.render && col.buttons">
+            <td>
+              <table-columns-buttons [buttons]="col.buttons" [type]="col.buttonType" [row]="dataItem" [rowIndex]="i">
+              </table-columns-buttons>
+            </td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </ng-container>
+
+  </tbody>
+  <ng-template #totalTpl let-range="range" let-total>{{ renderTotal(total, range) }}</ng-template>
+</nz-table>

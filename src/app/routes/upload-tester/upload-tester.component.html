@@ -1,0 +1,10 @@
+<nz-card nzTitle="上传组件 Upload">
+  <p>
+    是否可拖拽：<nz-switch [(ngModel)]="sort" (ngModelChange)="switchChange($event)"></nz-switch>
+  </p>
+  <zu nzListType="picture-card" [nzSort]="sort" [nzFileList]="fileList"  [nzPreview]="handlePreview"
+    (nzChange)="handleChange($event)">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+    <div class="ant-upload-text">选择文件</div>
+  </zu>
+</nz-card>

@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../publish", 
+  "lib": {
+    "entryFile": "./index.ts"
+  },
+  "whitelistedNonPeerDependencies": [
+    "tslib","image-compressor.js","loaders.css","ng-zorro-antd","ngx-sortablejs"
+  ]
+} 

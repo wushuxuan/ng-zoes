@@ -1,0 +1,35 @@
+<nz-card [nzTitle]="options.title" [nzLoading]="loading" [nzExtra]="options.extra?extraTpl:null" [nzBordered]="options.bordered">
+  <ng-template #extraTpl>
+
+    <ng-container *ngIf="options.extra.type =='button';else extraLink">
+      <button *ngFor="let item of options.extra.buttons"
+        (click)="item.link?_getExtraLink(item.link):(item.click?item.click():null)" [nzDanger]="item.danger"
+        [disabled]="item.diabled" nz-button [nzType]="item.type">{{item.text}}</button>
+    </ng-container>
+
+    <ng-template #extraLink>
+      <a nz-button *ngFor="let item of options.extra.buttons" nzType="link" [nzDanger]="item.danger"
+        [disabled]="item.diabled"
+        (click)="item.link?_getExtraLink(item.link):(item.click?item.click():null)">{{item.text}}</a>
+    </ng-template>
+
+
+  </ng-template>
+
+  <nz-card-tab *ngIf="options.tabs">
+    <nz-tabset [nzSize]="options.tabs.size" [nzSelectedIndex]="_selectedIndex"
+      (nzSelectChange)="_selectChange([$event])">
+      <nz-tab *ngFor="let item of options.tabs.values; let i=index" [nzTitle]="item.title" [nzDisabled]="item.disabled">
+      </nz-tab>
+    </nz-tabset>
+
+  </nz-card-tab>
+  <ng-container *ngIf="options.tabs.values">
+    <ng-template [ngTemplateOutlet]="options.tabs.values[_selectedIndex].component"></ng-template>
+  </ng-container>
+
+
+  <ng-content></ng-content>
+
+
+</nz-card>

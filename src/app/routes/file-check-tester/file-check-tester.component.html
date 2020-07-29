@@ -1,0 +1,7 @@
+<nz-card nzTitle="文件浏览 File-Check">
+  <zu nzListType="picture-card" [nzFileList]="fileList" [nzPreview]="handlePreview"  (nzChange)="handleChange($event)"
+   >
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+    <div class="ant-upload-text">选择文件</div>
+  </zu>
+</nz-card>

@@ -1,0 +1,33 @@
+<div class="file-view-container" *ngIf="show">
+  <div class="file-view-container-close">
+    <i (click)="close()" nz-icon nzType="close" nzTheme="outline"></i>
+  </div>
+  <div class="file-view-container-content">
+    <div class='file-view-container-icon'>
+      <i (click)="changeIndex('perv')" nz-icon nzType="left" nzTheme="outline"></i>
+    </div>
+    <div class='file-view-container-content-view'>
+      <div *ngIf="fileList && fileList.length;else empty">
+        <div [ngSwitch]="getType(fileList[index].name)">
+          <p *ngSwitchCase="'image'">
+            <img [src]="fileList[index].url?fileList[index].url:fileList[index].thumbUrl" />
+          </p>
+          <p *ngSwitchCase="'video'">
+            <video [src]="fileList[index].url?fileList[index].url:fileList[index].thumbUrl" controls="controls"
+              width="100%">您的浏览器不支持视频播放</video>
+          </p>
+          <p *ngSwitchDefault>
+            <span>暂不支持查看</span>
+          </p>
+        </div>
+        <p>{{index+1}} / {{fileList.length}} </p>
+      </div>
+      <ng-template #empty>
+        <nz-empty nzNotFoundImage="simple"></nz-empty>
+      </ng-template>
+
+    </div>
+    <div class='file-view-container-icon'><i (click)="changeIndex('next')" nz-icon nzType="right" nzTheme="outline"></i>
+    </div>
+  </div>
+</div>

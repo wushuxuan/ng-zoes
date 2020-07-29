@@ -1,0 +1,26 @@
+.example-list {
+  display:block;
+  overflow: hidden;
+}
+
+.example-box {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: move;
+}
+
+
+.cdk-drag-preview{
+  border:1px solid red
+}
+
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}

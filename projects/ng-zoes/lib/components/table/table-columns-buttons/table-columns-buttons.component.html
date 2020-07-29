@@ -1,0 +1,12 @@
+<ng-container>
+    <nz-button-group *ngIf="type=='button'">
+      <button nz-button *ngFor="let action of normalButtons" [nzType]="action.type" (click)="action.click(row,rowIndex)">{{action.text}}</button>
+    </nz-button-group>
+    <ng-container  *ngIf="type=='link'">
+      <ng-container *ngFor="let action of normalButtons;let $index = index;">
+          <a (click)="action.click(row,rowIndex)">{{action.text}}</a>
+          <nz-divider *ngIf="$index!=normalButtons.length-1" nzType="vertical"></nz-divider>
+      </ng-container>
+    </ng-container>
+</ng-container>
+

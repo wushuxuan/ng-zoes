@@ -1,0 +1,12 @@
+
+
+<nz-spin style="min-width:100%;min-height:100%;" [nzSpinning]="loading" [nzDelay]="500" [nzIndicator]="indicatorTemplate"> 
+  <ng-content></ng-content>
+</nz-spin>
+<ng-template #indicatorTemplate>
+    <div class="loader" style="position: absolute;top: 50%;left: 50%;margin: -10px;">
+        <div class="loader-inner {{className}}" >
+          <div *ngFor="let item of loadList" [ngStyle]="{'background': color?color:null,'width':_size+'px',height:_size+'px'}"></div>
+        </div>
+      </div>
+</ng-template>
