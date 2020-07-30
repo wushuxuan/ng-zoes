@@ -1,4 +1,4 @@
-<div *ngFor="let item of list">{{item.name}}</div>
+<!-- <div *ngFor="let item of list">{{item.name}}</div> -->
 <az-droppable *ngIf="list" [data]="list" [disabled]="!nzSort" [renderItem]="renderItems" (zdSortChange)="sortChange($event)"></az-droppable>
 <ng-template #renderItems let-file>
   <div class="ant-upload-list-item ant-upload-list-item-{{

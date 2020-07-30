@@ -146,14 +146,7 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ng-zoes/tsconfig.lib.json",
-            "project": "projects/ng-zoes/ng-package.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
-            ]
+            "project": "projects/ng-zoes/ng-package.json"
           },
           "configurations": {
             "production": {
@@ -166,14 +159,7 @@
           "options": {
             "main": "projects/ng-zoes/src/test.ts",
             "tsConfig": "projects/ng-zoes/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-zoes/karma.conf.js",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
-            ]
+            "karmaConfig": "projects/ng-zoes/karma.conf.js"
           }
         },
         "lint": {

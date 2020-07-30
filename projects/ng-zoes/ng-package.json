@@ -1,6 +1,7 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../publish", 
+  "dest": "../../publish",
+  "deleteDestPath": true,
   "lib": {
     "entryFile": "./index.ts"
   },

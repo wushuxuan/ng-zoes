@@ -1,5 +1,5 @@
-<p>拖拽：</p>
-<span *ngFor="let item of data">{{item.name}}</span>
+<!-- <p>拖拽：</p>
+<span *ngFor="let item of data">{{item.name}}</span> -->
 <div *ngIf="disabled">
   <div>
     <ng-container *ngFor="let item of data;let ii= index">
@@ -10,7 +10,7 @@
 </div>
 
 <div *ngIf="!disabled">
-  <span *ngFor="let item of data">{{item.name}} + "----"</span>
+  <!-- <span *ngFor="let item of data">{{item.name}} + "----"</span> -->
   <div [sortablejs]="data" [sortablejsOptions]="options">
     <ng-container *ngFor="let item of data;let ii= index">
       <ng-template [ngTemplateOutlet]="renderItem" [ngTemplateOutletContext]="{ $implicit: item, index: ii }">

@@ -3,7 +3,7 @@ import { ComponentPortal, } from '@angular/cdk/portal';
 import { ComponentType, Overlay, OverlayConfig, OverlayRef, ConnectedPositionStrategy,OverlayContainer,CdkOverlayOrigin } from '@angular/cdk/overlay';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import '@angular/cdk/overlay-prebuilt.css';
-import '../../components/loading/loading.component.styl'
+// import '../../components/loading/loading.component.styl'
 
 @Injectable({
   providedIn: 'root',

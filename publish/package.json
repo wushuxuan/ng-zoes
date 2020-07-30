@@ -1,0 +1,20 @@
+{
+  "name": "ng-zoes",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.0.7",
+    "@angular/core": "^9.0.7",
+    "ng-zorro-antd": "^9.3.0"
+  },
+  "main": "bundles/ng-zoes.umd.js",
+  "module": "fesm2015/ng-zoes.js",
+  "es2015": "fesm2015/ng-zoes.js",
+  "esm2015": "esm2015/ng-zoes.js",
+  "fesm2015": "fesm2015/ng-zoes.js",
+  "typings": "ng-zoes.d.ts",
+  "metadata": "ng-zoes.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}
