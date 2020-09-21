@@ -18,6 +18,9 @@ export default {
   zf:{
     submit:'Submit',
     cancel:'Cancel',
+  },
+  cropper:{
+    circle:'circle',
+    square:'square',
   }
-  
 } as FullLocaleData;

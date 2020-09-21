@@ -21,9 +21,15 @@ export interface FormLocalData extends LocaleData {
   cancel: string;
 }
 
+export interface CropperData extends LocaleData {
+  circle:string,
+  square:string,
+}
+
 export interface FullLocaleData {
   abbr: string;
   zt: TableLocaleData;
   zu: UploadLocaleData;
   zf: FormLocalData;
+  cropper:CropperData;
 }

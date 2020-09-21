@@ -1,0 +1,11 @@
+<div *ngIf="_disabled else imgContent" >
+  <img [src]="url" />
+</div>
+<ng-template #imgContent>
+    <div class="ng-cropper-box" [ngClass]="{'circle':type=='circle'?true:false }">
+        <img id="image" [src]="url" height="293" width="440" />
+    </div>
+</ng-template>
+
+
+<p>_disabled:{{_disabled}}</p>

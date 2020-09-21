@@ -11,6 +11,8 @@ import { UploadListComponent } from './lib/components/upload/upload-list.compone
 import { UploadComponent } from './lib/components/upload/upload.component'
 import { LoadingComponent } from './lib/components/loading/loading.component'
 import { FileCheckComponent } from './lib/components/file-check/file-check.component';
+import { CropperComponent } from './lib/components/cropper/cropper.component';
+
 
 
 const thirdComponents = [
@@ -22,7 +24,8 @@ const thirdComponents = [
   UploadListComponent,
   UploadComponent,
   LoadingComponent,
-  FileCheckComponent
+  FileCheckComponent,
+  CropperComponent
 ]
 
 const thirdModule = [
